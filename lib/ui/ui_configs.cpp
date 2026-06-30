@@ -38,8 +38,8 @@ static void drawCursor()
 
     oled->fillTriangle(
         8, y,
-        3, y - 2,
-        3, y + 2,
+        2, y - 3,
+        2, y + 3,
         SSD1306_WHITE);
 }
 
@@ -69,7 +69,9 @@ static void drawTimerValue()
 
     char buffer[12];
 
-    if (ui.settings.relayTimeout < 60)
+    if (ui.settings.relayTimeout == 0)
+        snprintf(buffer, sizeof(buffer), "Imed.");
+    else if (ui.settings.relayTimeout < 60)
         snprintf(buffer, sizeof(buffer), "%us", ui.settings.relayTimeout);
     else if (ui.settings.relayTimeout < 3600)
         snprintf(buffer, sizeof(buffer), "%umin", ui.settings.relayTimeout / 60);
