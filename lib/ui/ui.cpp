@@ -126,30 +126,6 @@ static ConfigItem previousConfig(ConfigItem item)
     return ConfigItem::TIMER;
 }
 
-constexpr uint16_t RELAY_TIMEOUT_OPTIONS[] = {
-    30,
-    60,
-    120,
-    300,
-    600,
-    900,
-    1200,
-    1800,
-    2700,
-    3600,
-    7200
-};
-
-constexpr uint16_t DISPLAY_TIMEOUT_OPTIONS[] = {
-    0,
-    30,
-    60,
-    120,
-    300,
-    600,
-    900
-};
-
 static uint8_t findRelayTimeoutIndex()
 {
     for (uint8_t i = 0; i < sizeof(RELAY_TIMEOUT_OPTIONS) / sizeof(RELAY_TIMEOUT_OPTIONS[0]); i++)
